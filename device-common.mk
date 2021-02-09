@@ -37,7 +37,7 @@ PRODUCT_AAPT_CONFIG      := xlarge
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Camera
-PRODUCT_PACKAGES += Camera2
+PRODUCT_PACKAGES += Snap
 
 # Ramdisk
 PRODUCT_PACKAGES += \
