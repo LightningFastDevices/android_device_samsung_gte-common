@@ -30,6 +30,12 @@ LOCAL_PATH := device/samsung/gte-common
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
+# Device is a tablet
+PRODUCT_CHARACTERISTICS  := tablet
+
+PRODUCT_AAPT_CONFIG      := xlarge
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+
 # Camera
 PRODUCT_PACKAGES += Camera2
 
@@ -43,17 +49,13 @@ PRODUCT_COPY_FILES += \
 
 # Permissions
 PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml
+	frameworks/native/data/etc/android.hardware.camera.autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.autofocus.xml \
+	frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
 
 # append the updater uri to the product properties if set
 ifneq ($(CM_UPDATER_OTA_URI),)
 	PRODUCT_PROPERTY_OVERRIDES += $(CM_UPDATER_OTA_URI)
 endif
-
-# This is a tablet.
-PRODUCT_CHARACTERISTICS := tablet
-PRODUCT_AAPT_CONFIG := xlarge
-PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Inhert dalvik heap values from aosp
 $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
