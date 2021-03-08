@@ -24,6 +24,9 @@ USE_QCOM_MIXER_PATHS := 1
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
+# Build Fingerprint
+BUILD_FINGERPRINT :=  samsung/gtelwifiue/gtelwifiue:7.1.1/NMF26X/T560NUUEU1CQK2:user/release-keys
+
 # Charger
 BOARD_NO_CHARGER_LED := true
 
